@@ -7,4 +7,17 @@ describe("Test cases for App File", () => {
     const response = await request(app).get("/healthcheck");
     expect(response.statusCode).toBe(200);
   });
+
+  test("GraphQL route", async () => {
+    const app = await expressApp();
+    const query = `query { hello  }`;
+    const response = await request(app).post("/graphql").query({ query });
+    expect(response.statusCode).toBe(200);
+  });
+
+  test("Error Handler route", async () => {
+    const app = await expressApp();
+    const response = await request(app).get("/graphql");
+    expect(response.statusCode).toBe(400);
+  });
 });
