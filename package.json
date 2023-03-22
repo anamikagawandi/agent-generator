@@ -1,0 +1,47 @@
+{
+  "name": "agent-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint \"**/*.ts\" --fix",
+    "lint-ci": "eslint \"**/*.ts\"",
+    "commit": "npm run tsc --workspaces && lint-staged",
+    "test": "npm run test --workspaces",
+    "tsc": "npm run tsc --workspaces"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anamikagawandi/agent-generator.git"
+  },
+  "author": "Anamika Vivek Gawandi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anamikagawandi/agent-generator/issues"
+  },
+  "homepage": "https://github.com/anamikagawandi/agent-generator#readme",
+  "workspaces": [
+    "server"
+  ],
+  "devDependencies": {
+    "@spotify/eslint-config-base": "^12.0.0",
+    "@spotify/eslint-config-typescript": "^12.0.0",
+    "@spotify/prettier-config": "^12.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.2",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5",
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.3",
+    "@types/supertest": "^2.0.12",
+    "supertest": "^6.2.2",
+    "ts-jest": "^29.0.5"
+  }
+}

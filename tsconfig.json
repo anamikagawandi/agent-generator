@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "rootDirs": [
+      "src"
+    ],
+    "outDir": "dist",
+    "lib": [
+      "ES2021"
+    ],
+    "target": "ES2021",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "types": [
+      "node",
+      "jest"
+    ],
+    "strict": true,
+    "allowJs": true,
+    "declaration": true,
+    "declarationMap": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+  },
+  "exclude": [
+    "dist",
+    "coverage",
+    "node_modules",
+    "../.eslintrc.js"
+  ]
+}
