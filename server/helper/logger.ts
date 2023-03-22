@@ -6,7 +6,12 @@ import winston from "winston";
  * @param {String} label
  * @param {String} data
  */
-const log = (level: string, message: string, label: string, data: string) => {
+export const log = (
+  level: string,
+  message: string,
+  label: string | null,
+  data?: object
+) => {
   const options = {
     console: {
       level: "debug",
@@ -28,8 +33,4 @@ const log = (level: string, message: string, label: string, data: string) => {
   });
 
   logger.log(level, message, { logDetails: data });
-};
-
-module.exports = {
-  log,
 };
