@@ -1,6 +1,6 @@
 "use strict";
 
-const expressApp = require("./app");
+import { expressApp } from "./app";
 const http = require("http");
 const logger = require("./helper/logger");
 const config = require("./config")();

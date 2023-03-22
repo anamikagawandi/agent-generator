@@ -8,6 +8,5 @@ module.exports = {
     '<rootDir>/index.ts',
   ],
   "coverageReporters": ['json', 'lcov', 'text', 'clover', 'cobertura'],
-  "reporters": ['default'],
-  "testResultsProcessor": "jest-sonar-reporter",
+  "reporters": ['default']
 };

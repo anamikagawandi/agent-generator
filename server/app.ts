@@ -10,7 +10,7 @@ import { buildSchema } from "graphql";
 /**
  * Initializes the express application
  */
-module.exports = async () => {
+export const expressApp = async () => {
   const app = express();
 
   app.use(bodyParser.json());
@@ -33,24 +33,27 @@ module.exports = async () => {
   });
 
   // Construct a schema, using GraphQL schema language
-const schema = buildSchema(`
+  const schema = buildSchema(`
 type Query {
   hello: String!
 }
 `);
 
-// The root provides a resolver function for each API endpoint
-const root = {
-hello: () => {
-  return 'Hello world!';
-},
-};
+  // The root provides a resolver function for each API endpoint
+  const root = {
+    hello: () => {
+      return "Hello world!";
+    },
+  };
 
-  app.use("/graphql", graphqlHTTP({
-    schema: schema,
-    rootValue: root,
-    graphiql: true,
-  }));
+  app.use(
+    "/graphql",
+    graphqlHTTP({
+      schema: schema,
+      rootValue: root,
+      graphiql: true,
+    })
+  );
 
   app.use(errorHandler);
   return app;
