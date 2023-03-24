@@ -15,9 +15,9 @@ describe("Test cases for App File", () => {
     expect(response.statusCode).toBe(200);
   });
 
-  test("Error Handler route", async () => {
+  test("Error Handler 400", async () => {
     const app = await expressApp();
-    const response = await request(app).get("/graphql");
+    const response = await request(app).post("/graphql");
     expect(response.statusCode).toBe(400);
   });
 });

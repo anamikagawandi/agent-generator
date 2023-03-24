@@ -5,7 +5,7 @@ import expressWinston from "express-winston";
 import { errorHandler } from "./helper/error-handler";
 import helmet from "helmet";
 import { graphqlHTTP } from "express-graphql";
-import { buildSchema } from "graphql";
+import { schema } from "./schema";
 
 /**
  * Initializes the express application
@@ -28,30 +28,15 @@ export const expressApp = async () => {
     })
   );
 
-  app.use("/healthcheck", (_req: Request, res: Response) => {
+  app.get("/healthcheck", (_req: Request, res: Response) => {
     res.status(200).json({ message: "ok" });
   });
-
-  // Construct a schema, using GraphQL schema language
-  const schema = buildSchema(`
-type Query {
-  hello: String!
-}
-`);
-
-  // The root provides a resolver function for each API endpoint
-  const root = {
-    hello: () => {
-      return "Hello world!";
-    },
-  };
 
   app.use(
     "/graphql",
     graphqlHTTP({
       schema: schema,
-      rootValue: root,
-      graphiql: true,
+      graphiql: true, // process.env.NODE_ENV === "development",
     })
   );
 
