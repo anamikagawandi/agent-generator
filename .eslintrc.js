@@ -29,7 +29,8 @@ module.exports = {
       'import/no-default-export': 'error',
       'no-console': 'off',
       'import/extensions': ['error', 'never', { json: 'always' }],
-      'import/no-unresolved': 'off'
+      'import/no-unresolved': 'off',
+      "new-cap": 0,
     },
   }],
 };
