@@ -1,30 +1,10 @@
-import { GraphQLSchema, GraphQLObjectType, GraphQLString } from "graphql";
+import { GraphQLSchema } from "graphql";
+import { mergeSchemas } from "@graphql-tools/schema";
+import { trainingPhraseSchema } from "./training-phrases-schema";
+import { entityTypeSchema } from "./entity-type-schema";
 
-export const schema: GraphQLSchema = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: "Query",
-    fields: {
-      hello: {
-        type: GraphQLString,
-        resolve: () => {
-          return "Hello, world!";
-        },
-      },
-    },
-  }),
-
-  mutation: new GraphQLObjectType({
-    name: "Mutation",
-    fields: {
-      addMessage: {
-        type: GraphQLString,
-        args: {
-          message: { type: GraphQLString },
-        },
-        resolve: (_root, args) => {
-          return `Message added: ${args.message}`;
-        },
-      },
-    },
-  }),
+const schema: GraphQLSchema = mergeSchemas({
+  schemas: [trainingPhraseSchema, entityTypeSchema],
 });
+
+export { schema };

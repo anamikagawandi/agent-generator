@@ -10,7 +10,13 @@ describe("Test cases for App File", () => {
 
   test("GraphQL route", async () => {
     const app = await expressApp();
-    const query = `query { hello  }`;
+    const query = `query{
+      getAllTrainingPhrases{
+        id,
+        phrase,
+        industry
+      }
+    }`;
     const response = await request(app).post("/graphql").query({ query });
     expect(response.statusCode).toBe(200);
   });
